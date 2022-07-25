@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "name": "mercado-frontend",
+  "version": "2.1.0",
+  "scripts": {
+    "build": "umi build",
+    "start": "sudo PORT=80 umi dev",
+    "test": "umi test",
+    "lint": "eslint src --ext ts --ext tsx"
+  },
+  "gitHooks": {},
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@terminus/nusi": "^3.11.0",
+    "antd": "^4.19.5",
+    "antd-dayjs-webpack-plugin": "^1.0.6",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.1",
+    "memorize-one": "^0.0.0",
+    "moment": "^2.29.3",
+    "query-string": "^7.1.1",
+    "ramda": "^0.28.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "umi": "^3.5.23",
+    "umi-request": "^1.4.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/ramda": "^0.27.66",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "@umijs/preset-react": "~1.8.30",
+    "@umijs/test": "^3.5.23",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^16.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.3",
+    "yorkie": "^2.0.0"
+  }
+}

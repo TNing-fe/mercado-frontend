@@ -1,0 +1,57 @@
+.layout {
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px #f0f1f2;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login {
+  margin-right: 20px;
+}
+
+.body {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin: 0;
+  padding: 0 20px;
+  color: #000000d9;
+  font-size: 20px;
+  font-weight: 700;
+  img {
+    display: block;
+    width: 120px;
+    margin-right: 10px;
+    height: 25px;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+  padding-top: 20px;
+  min-height: calc(100vh - 64px);
+}
+
+.main {
+  flex: 1;
+  overflow: scroll;
+}
+
+.mainMenu {
+  flex: 1;
+}

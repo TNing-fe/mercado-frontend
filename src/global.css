@@ -1,0 +1,67 @@
+@import '~@terminus/nusi/dist/nusi.min.css';
+
+body {
+  font-family: Microsoft YaHei, Helvetica Neue, Helvetica, Roboto, Segoe UI,
+    Arial, sans-serif !important;
+}
+
+.pk-form-horizontal .pk-form-item>.pk-form-item-label {
+  display: none !important;
+}
+
+.pk-select {
+  min-width: 10px;
+}
+
+.pk-select-single:not(.pk-select-customize-input) .pk-select-selector {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.pk-input:focus,
+.pk-input:hover {
+  /* border: 1px solid transparent !important; */
+}
+
+.pk-tabs-nav-scroll {
+  padding-left: 32px;
+}
+
+a {
+  color: #aaa;
+  outline: none;
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+/* 指正常的未被访问过的链接*/
+
+a:visited {
+  text-decoration: none;
+}
+
+/*指已经访问过的链接*/
+
+a:hover {
+  text-decoration: none;
+}
+
+/*指鼠标在链接*/
+
+a:active {
+  text-decoration: none;
+}
+
+/* 指正在点的链接*/
+.ant-anchor-link-active {
+  border-left: 3px solid #2f9aff;
+  background-color: #ebf5ff;
+}
+
+.ant-anchor-link-title-active {
+  color: #2f9aff;
+  text-decoration: none;
+}
