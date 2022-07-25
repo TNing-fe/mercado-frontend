@@ -1,0 +1,184 @@
+.wrapper {
+  //width: 100vw;
+  height: 100vh;
+  min-width: 500px;
+  .flex(flex-start, space-around, nowrap);
+  box-sizing: border-box;
+
+  // 左侧导航
+  .leftSide {
+    width: 240px;
+    height: 100%;
+    box-shadow: 0 0 20px hsl(0deg 0% 87%);
+    overflow: scroll;
+
+    .titleWrapper {
+      padding-left: 60px;
+      height: 50px;
+      line-height: 50px;
+
+      .titleText {
+        font-weight: 500;
+        font-size: 16px;
+        color: #333;
+      }
+    }
+
+    // logo
+    .logoWrapper {
+      display: block;
+      padding: 50px 0;
+      cursor: pointer;
+      text-align: center;
+
+      img {
+        width: 50%;
+      }
+    }
+
+    .navigatorWrapper {
+      width: 100%;
+      text-align: left;
+
+      .linkItem {
+        font-weight: 500;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 103px;
+      }
+    }
+  }
+
+  // 右侧内容区
+  .rightContent {
+    flex: 1;
+    overflow: scroll;
+    width: 860px;
+    padding-top: 20px;
+    .middle();
+
+    .banner {
+      width: 860px;
+      height: 484px;
+      .middle();
+
+      img {
+        width: 860px;
+      }
+    }
+
+    .content {
+      //width: 860px;
+      margin-top: 50px;
+      padding-bottom: 500px;
+      .middle();
+
+      .contentTitle {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .listWrapper {
+        position: relative;
+        padding-top: 60px;
+      }
+
+      .cardWrapper {
+        width: 100%;
+        height: 100%;
+        .flex(flex-start);
+        padding: 20px 0;
+
+        .imgWrapper {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          border-radius: 6px;
+          overflow: hidden;
+        }
+      }
+
+      .cardBox {
+        position: relative;
+        width: 276px;
+        height: 150px;
+        margin-right: 10px;
+      }
+
+      .cardItemWrapper {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+      }
+
+      .card {
+        display: block;
+        width: 276px;
+        height: 120px;
+        color: #fff;
+        border-radius: 6px;
+        //padding: 10px 20px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        transform: translateY(-50%);
+        transition: box-shadow 0.25s, height 0.25s;
+        -webkit-user-drag: none;
+        -webkit-user-select: text;
+        user-select: text;
+
+        &:hover {
+          height: 140px;
+          box-shadow: 0 6px 20px hsl(0deg 0% 70%);
+        }
+
+        .textBox {
+          padding: 10px 20px;
+          font-size: 24px;
+          position: relative;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+
+.flex(@justify: center, @align: center, @wrap: wrap, @direction: row) {
+  display: flex;
+  justify-content: @justify;
+  align-items: @align;
+  flex-direction: @direction;
+  flex-wrap: @wrap;
+}
+
+.middle {
+  .disableSider & {
+    margin: 0;
+  }
+
+  margin: 0 auto;
+}
+
+.disableSider {
+  .rightContent .content {
+    margin: 0;
+
+    .listWrapper {
+      padding-top: 0;
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.search {
+  height: 1px;
+  overflow: visible;
+}
+
+.boxDesc {
+  cursor: initial;
+  font-size: 14px;
+  min-height: 2em;
+}

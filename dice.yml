@@ -1,0 +1,22 @@
+version: 2.0
+
+envs:
+  production: production
+
+services:
+  mercado-frontend:
+    ports:
+      - 80
+    expose:
+      - 80
+    deployments:
+      replicas: 1
+    resources:
+      cpu: 0.2
+      mem: 128
+    health_check:
+      exec:
+        cmd: echo 1
+# addons:
+#   monitor:
+#     plan: monitor:dev

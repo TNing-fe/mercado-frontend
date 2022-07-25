@@ -1,0 +1,53 @@
+version: '1.1'
+on:
+  push:
+    branches:
+      - master
+stages:
+  - stage:
+      - git-checkout:
+          alias: repo
+          description: 代码仓库克隆
+          version: '1.0'
+          params:
+            branch: ((gittar.branch))
+            depth: 1
+            password: ((gittar.password))
+            uri: ((gittar.repo))
+            username: ((gittar.username))
+  - stage:
+      - buildpack:
+          alias: bp-sales-workspace
+          version: '1.0'
+          params:
+            bp_args:
+              PUBLIC_DIR: dist
+            bp_repo: SPA
+            context: ${repo}
+            modules:
+              - name: sales-workspace
+                path: .
+          caches:
+            - key: '{{basePath}}/master/{{endPath}}'
+              path: ${repo}/node_modules
+  - stage:
+      - release:
+          alias: release
+          description: 用于打包完成时，向dicehub 提交完整可部署的dice.yml。用户若没在pipeline.yml里定义该action，CI会自动在pipeline.yml里插入该action
+          version: '1.0'
+          params:
+            dice_yml: ${repo}/dice.yml
+            replacement_images:
+              - ${bp-sales-workspace}/pack-result
+  - stage:
+      - dice:
+          alias: deploy
+          description: 用于 dice 平台部署应用服务
+          version: '1.0'
+          params:
+            bp_args:
+              DEP_CMD: production
+            dice_yml: ${repo}/dice.yml
+            release_id_path: ${release}
+            replacement_images:
+              - ${bp-sales-workspace}/pack-result
