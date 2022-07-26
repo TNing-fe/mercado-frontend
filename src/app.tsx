@@ -1,16 +1,18 @@
 /*
  * @LastEditors: Necfol
  * @Date: 2022-05-31 19:25:36
- * @LastEditTime: 2022-07-25 22:38:13
+ * @LastEditTime: 2022-07-26 23:19:18
  * @FilePath: /mercado-frontend/src/app.tsx
  */
 // 运行时配置
 import { history } from 'umi'
 import { notification } from '@terminus/nusi'
 
+// todo 权限控制等接入uc和acl之后加上
 const whiteList = [
   '/admin/login',
   '/',
+  '/upload',
   '/showcase',
   '/showcase/eevee',
   '/showcase/trantor'

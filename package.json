@@ -30,6 +30,7 @@
     "ramda": "^0.28.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-dropzone": "^14.2.2",
     "react-router-dom": "^6.3.0",
     "umi": "^3.5.23",
     "umi-request": "^1.4.0",
