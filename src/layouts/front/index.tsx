@@ -1,13 +1,14 @@
 /*
  * @LastEditors: Necfol
  * @Date: 2022-05-31 19:25:36
- * @LastEditTime: 2022-07-25 23:51:36
+ * @LastEditTime: 2022-07-26 23:19:44
  * @FilePath: /mercado-frontend/src/layouts/front/index.tsx
  */
 import type { ReactNode } from 'react'
 import moment from 'moment'
 import 'moment/locale/zh-cn'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, Dropdown, Menu, Space } from 'antd'
+import { DownOutlined, CloudUploadOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import zhCN from 'antd/lib/locale/zh_CN'
@@ -25,6 +26,31 @@ interface FrontLayoutProps {
   children: ReactNode;
 }
 
+interface MenuItemProps {
+  key: string;
+  name: string;
+  action: string;
+  icon: any;
+}
+const menuItemArr: Array<MenuItemProps> = [{
+  key: '0',
+  name: '发布组件',
+  action: '/upload',
+  icon: <CloudUploadOutlined />
+}]
+const menu = (
+  <Menu
+    items={menuItemArr.map(({ key, name, action, icon }) => ({
+      key,
+      label: (
+        <Link to={action} className={style.login}>
+          {name}
+        </Link>
+      ),
+      icon
+    }))}
+  />
+)
 const FrontLayout = ({ location, children }: FrontLayoutProps) => {
   const token = sessionStorage.getItem('token')
   return (
@@ -35,10 +61,18 @@ const FrontLayout = ({ location, children }: FrontLayoutProps) => {
             <img src={logoUrl} alt="组件市场" />
             <span className="text">组件市场</span>
           </h1>
-          {!token && (
+          {/* todo 为了调试这边取反了 */}
+          {token ? (
             <Link to="/admin/login" className={style.login}>
               登录
             </Link>
+          ) : (
+            <Dropdown className={style.login} overlay={menu}>
+              <Space>
+                昵称
+                <DownOutlined />
+              </Space>
+            </Dropdown>
           )}
         </div>
         <div className={style.body}>
