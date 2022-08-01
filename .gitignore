@@ -15,6 +15,7 @@
 /src/.umi-production
 /src/.umi-test
 /.env.local
+/.env
 .code-workspace
 
 /yarn-error.log
